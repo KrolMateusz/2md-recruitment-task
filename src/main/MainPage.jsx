@@ -36,18 +36,25 @@ function MainPage() {
                     This is main page title
                 </h1>
             </div>
-            <div className="bg-blue-light w-full px-5 flex flex-col justify-center items-center">
+            <div className="bg-blue-light w-full p-5 flex flex-col justify-center items-center">
                 <h1 className="text-blue-dark text-lg hidden md:block">
                     This is main page title
                 </h1>
                 <p className="text-blue-dark">
                     {isMoreClicked ? fullText : shortText}
                 </p>
-                <Button
-                    onClick={() => setIsMoreClicked((prevState) => !prevState)}
-                >
-                    Show more
-                </Button>
+                <div className="w-full mt-5 flex justify-evenly">
+                    <Button
+                        text="More"
+                        onClick={() =>
+                            setIsMoreClicked((prevState) => !prevState)
+                        }
+                    />
+                    <Button
+                        text="Show gallery"
+                        onClick={() => console.log("zdjecia")}
+                    />
+                </div>
             </div>
         </div>
     )
