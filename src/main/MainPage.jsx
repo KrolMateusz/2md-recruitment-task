@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Button from "../components/button"
 
 const fullText = `quis enim lobortis scelerisque fermentum dui faucibus in
 ornare quam viverra orci sagittis eu volutpat odio facilisis
@@ -29,24 +30,24 @@ function MainPage() {
     const [isMoreClicked, setIsMoreClicked] = useState(false)
 
     return (
-        <div className="flex flex-col justify-center items-center m-12">
-            <div className="bg-blue-300 w-full h-40">
-                <h1 className="text-blue-400 text-lg md:invisible">
+        <div className="shadow-sm grid grid-cols-1 md:grid-cols-main-page md:max-w-4xl md:mx-auto">
+            <div className="bg-blue-default w-full px-5 flex justify-center items-center">
+                <h1 className="text-blue-dark text-lg py-12 md:hidden">
                     This is main page title
                 </h1>
             </div>
-            <div className="bg-blue-100 w-full flex flex-col justify-center items-center">
-                <h1 className="text-blue-400 text-lg invisible md:visible">
+            <div className="bg-blue-light w-full px-5 flex flex-col justify-center items-center">
+                <h1 className="text-blue-dark text-lg hidden md:block">
                     This is main page title
                 </h1>
-                <p className="text-blue-400">
+                <p className="text-blue-dark">
                     {isMoreClicked ? fullText : shortText}
                 </p>
-                <button
+                <Button
                     onClick={() => setIsMoreClicked((prevState) => !prevState)}
                 >
                     Show more
-                </button>
+                </Button>
             </div>
         </div>
     )
