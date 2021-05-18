@@ -43,17 +43,19 @@ function MainPage() {
                 <p className="text-blue-dark">
                     {isMoreClicked ? fullText : shortText}
                 </p>
-                <div className="w-full mt-5 flex justify-evenly">
+                <div className="w-full mt-5 flex justify-between">
                     <Button
                         text="More"
+                        classes="border border-blue-default text-blue-dark font-medium"
                         onClick={() =>
                             setIsMoreClicked((prevState) => !prevState)
                         }
                     />
                     <Button
-                        text="Show gallery"
+                        text="Show Gallery"
+                        classes="bg-blue-dark text-blue-light font-medium"
                         onClick={() => console.log("zdjecia")}
-                    />
+                    ></Button>
                 </div>
             </div>
         </div>
