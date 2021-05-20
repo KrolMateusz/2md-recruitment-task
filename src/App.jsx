@@ -2,7 +2,7 @@ import MainPage from "./main/MainPage"
 
 function App() {
     return (
-        <div className="App min-w-screen min-h-screen flex justify-center items-center">
+        <div className="App min-w-screen min-h-screen flex items-stretch">
             <MainPage />
         </div>
     )
