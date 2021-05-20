@@ -9,11 +9,6 @@ module.exports = {
                 dark: "#2899fb",
             },
         },
-        extend: {
-            maxHeight: {
-                auto: "768px",
-            },
-        },
     },
     variants: {
         extend: {},

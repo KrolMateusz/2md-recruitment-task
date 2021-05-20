@@ -38,14 +38,14 @@ function MainPage() {
     }
 
     return (
-        <div className="shadow-sm flex flex-col">
-            <div className="bg-blue-default py-6 flex flex-col justify-center items-center">
-                <Canvas className="justify-self-start mb-6" r={60} />
-                <h1 className="text-blue-dark text-lg md:hidden">
+        <div className="shadow-sm flex flex-col flex-grow">
+            <div className="bg-blue-default h-48 flex flex-col justify-center items-center">
+                <Canvas className="justify-self-start mb-6" r={50} />
+                <h1 className="text-blue-light text-lg md:hidden">
                     This is main page title
                 </h1>
             </div>
-            <div className="bg-blue-light p-5 h-full flex flex-col items-center">
+            <div className="bg-blue-light p-5 h-full flex-grow flex flex-col items-center">
                 <h1 className="text-blue-dark text-lg hidden md:block">
                     This is main page title
                 </h1>
