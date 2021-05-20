@@ -28,11 +28,11 @@ function useCanvas(ref, r) {
     }, [])
 }
 
-function Canvas({ r }) {
+function Canvas({ r, ...props }) {
     const canvasRef = useRef(null)
     useCanvas(canvasRef, r)
 
-    return <canvas width={2 * r} height={2 * r} ref={canvasRef} />
+    return <canvas {...props} width={2 * r} height={2 * r} ref={canvasRef} />
 }
 
 Canvas.propTypes = {

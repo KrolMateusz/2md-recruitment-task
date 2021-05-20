@@ -39,8 +39,8 @@ function MainPage() {
 
     return (
         <div className="shadow-sm flex flex-col">
-            <div className="bg-blue-default py-12 flex flex-col justify-center items-center">
-                <Canvas r={50} />
+            <div className="bg-blue-default py-6 flex flex-col justify-center items-center">
+                <Canvas className="justify-self-start mb-6" r={60} />
                 <h1 className="text-blue-dark text-lg md:hidden">
                     This is main page title
                 </h1>
@@ -57,7 +57,7 @@ function MainPage() {
                     }}
                     ref={collapsingText}
                     className={clsx(
-                        !isMoreClicked && "max-h-14",
+                        !isMoreClicked && "max-h-24",
                         "text-blue-dark overflow-hidden transition-all duration-1000 ease-in-out"
                     )}
                 >
