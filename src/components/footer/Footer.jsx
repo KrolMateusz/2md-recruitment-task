@@ -27,15 +27,20 @@ function Footer() {
     const [time, date] = useDate()
 
     return (
-        <div className="w-full h-36 px-2 bg-blue-dark flex justify-between">
-            <div className="w-1/3 mx-2 text-blue-light">
+        <div className="w-full h-36 bg-blue-dark flex flex-wrap justify-evenly">
+            <div className="text-blue-light">
                 <p>Mateusz Król</p>
+                <p className="md:hidden">605 064 769</p>
+                <p className="md:hidden">mateusz.krol96@wp.pl</p>
             </div>
-            <div className="w-1/3 mx-2 text-blue-light">
+            <div className="text-blue-light">
                 <p>{date}</p>
                 <p>{time}</p>
             </div>
-            <div className="w-1/3 mx-2 text-blue-light">Contact</div>
+            <div className="hidden md:block text-blue-light">
+                <p className="hidden md:block">605 064 769</p>
+                <p className="hidden md:block">mateusz.krol96@wp.pl</p>
+            </div>
         </div>
     )
 }
