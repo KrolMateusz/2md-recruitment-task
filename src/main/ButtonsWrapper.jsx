@@ -6,10 +6,10 @@ function ButtonsWrapper({ textArray, onClickArray }) {
     const [moreOnClick, galleryOnClick] = onClickArray
 
     return (
-        <div className="w-full mt-5 flex justify-between">
+        <div className="w-full mt-5 flex justify-between sm:justify-start">
             <Button
                 text={moreText}
-                classes="border border-blue-default text-blue-dark font-medium"
+                classes="border border-blue-default text-blue-dark font-medium sm: mr-10"
                 onClick={moreOnClick}
             />
             <Button
