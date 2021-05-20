@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import { useState, useRef } from "react"
-import Button from "../components/button"
+import ButtonsWrapper from "./ButtonsWrapper"
 
 const fullText = `quis enim lobortis scelerisque fermentum dui faucibus in
 ornare quam viverra orci sagittis eu volutpat odio facilisis
@@ -23,14 +23,18 @@ id venenatis a condimentum vitae sapien pellentesque
 habitant morbi tristique senectus et netus et malesuada
 fames ac turpis`
 
-// const shortText = `quis enim lobortis scelerisque fermentum dui faucibus in
-// ornare quam viverra orci sagittis eu volutpat odio facilisis
-// mauris sit amet...`
-
 function MainPage() {
     const [isMoreClicked, setIsMoreClicked] = useState(false)
     const collapsingText = useRef(null)
     console.log(collapsingText.current && collapsingText.current.scrollHeight)
+
+    function onClickMoreText() {
+        setIsMoreClicked((prevState) => !prevState)
+    }
+
+    function onClickShowGallery() {
+        console.log("zdjecia")
+    }
 
     return (
         <div className="shadow-sm flex flex-col">
@@ -57,20 +61,10 @@ function MainPage() {
                 >
                     {fullText}
                 </p>
-                <div className="w-full mt-5 flex justify-between">
-                    <Button
-                        text="More"
-                        classes="border border-blue-default text-blue-dark font-medium"
-                        onClick={() =>
-                            setIsMoreClicked((prevState) => !prevState)
-                        }
-                    />
-                    <Button
-                        text="Show Gallery"
-                        classes="bg-blue-dark text-blue-light font-medium"
-                        onClick={() => console.log("zdjecia")}
-                    ></Button>
-                </div>
+                <ButtonsWrapper
+                    textArray={["More", "Show Gallery"]}
+                    onClickArray={[onClickMoreText, onClickShowGallery]}
+                />
             </div>
         </div>
     )
