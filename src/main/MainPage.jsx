@@ -1,6 +1,7 @@
 import clsx from "clsx"
 import { useState, useRef } from "react"
 import ButtonsWrapper from "./ButtonsWrapper"
+import Canvas from "../components/canvas"
 
 const fullText = `quis enim lobortis scelerisque fermentum dui faucibus in
 ornare quam viverra orci sagittis eu volutpat odio facilisis
@@ -38,8 +39,9 @@ function MainPage() {
 
     return (
         <div className="shadow-sm flex flex-col">
-            <div className="bg-blue-default flex justify-center items-center">
-                <h1 className="text-blue-dark text-lg py-12 md:hidden">
+            <div className="bg-blue-default py-12 flex flex-col justify-center items-center">
+                <Canvas r={50} />
+                <h1 className="text-blue-dark text-lg md:hidden">
                     This is main page title
                 </h1>
             </div>
