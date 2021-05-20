@@ -1,4 +1,5 @@
-import { useState } from "react"
+import clsx from "clsx"
+import { useState, useRef } from "react"
 import Button from "../components/button"
 
 const fullText = `quis enim lobortis scelerisque fermentum dui faucibus in
@@ -22,12 +23,14 @@ id venenatis a condimentum vitae sapien pellentesque
 habitant morbi tristique senectus et netus et malesuada
 fames ac turpis`
 
-const shortText = `quis enim lobortis scelerisque fermentum dui faucibus in
-ornare quam viverra orci sagittis eu volutpat odio facilisis
-mauris sit amet...`
+// const shortText = `quis enim lobortis scelerisque fermentum dui faucibus in
+// ornare quam viverra orci sagittis eu volutpat odio facilisis
+// mauris sit amet...`
 
 function MainPage() {
     const [isMoreClicked, setIsMoreClicked] = useState(false)
+    const collapsingText = useRef(null)
+    console.log(collapsingText.current && collapsingText.current.scrollHeight)
 
     return (
         <div className="shadow-sm flex flex-col">
@@ -40,8 +43,19 @@ function MainPage() {
                 <h1 className="text-blue-dark text-lg hidden md:block">
                     This is main page title
                 </h1>
-                <p className="text-blue-dark">
-                    {isMoreClicked ? fullText : shortText}
+                <p
+                    style={{
+                        maxHeight:
+                            isMoreClicked &&
+                            collapsingText.current.scrollHeight,
+                    }}
+                    ref={collapsingText}
+                    className={clsx(
+                        !isMoreClicked && "max-h-14",
+                        "text-blue-dark overflow-hidden transition-all duration-1000 ease-in-out"
+                    )}
+                >
+                    {fullText}
                 </p>
                 <div className="w-full mt-5 flex justify-between">
                     <Button

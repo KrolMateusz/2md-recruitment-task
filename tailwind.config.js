@@ -10,11 +10,8 @@ module.exports = {
             },
         },
         extend: {
-            gridTemplateColumns: {
-                "main-page": "200px minmax(400px, 1fr)",
-            },
-            gridTemplateRows: {
-                "maing-page-mobile": "8rem 1fr",
+            maxHeight: {
+                auto: "768px",
             },
         },
     },
