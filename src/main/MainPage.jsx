@@ -30,13 +30,13 @@ function MainPage() {
     const [isMoreClicked, setIsMoreClicked] = useState(false)
 
     return (
-        <div className="w-full h-full shadow-sm flex flex-col">
+        <div className="shadow-sm flex flex-col">
             <div className="bg-blue-default flex justify-center items-center">
                 <h1 className="text-blue-dark text-lg py-12 md:hidden">
                     This is main page title
                 </h1>
             </div>
-            <div className="bg-blue-light p-5 flex flex-col justify-center items-center">
+            <div className="bg-blue-light p-5 h-full flex flex-col items-center">
                 <h1 className="text-blue-dark text-lg hidden md:block">
                     This is main page title
                 </h1>
