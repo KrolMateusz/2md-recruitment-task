@@ -15,14 +15,7 @@ sagittis aliquam malesuada bibendum arcu vitae elementum
 curabitur vitae nunc sed velit dignissim sodales ut eu sem
 integer vitae justo eget magna fermentum iaculis eu non diam
 phasellus vestibulum lorem sed risus ultricies tristique
-nulla aliquet enim tortor at auctor urna nunc id cursus
-metus aliquam eleifend mi in nulla posuere sollicitudin
-aliquam ultrices sagittis orci a scelerisque purus semper
-eget duis at tellus at urna condimentum mattis pellentesque
-id nibh tortor id aliquet lectus proin nibh nisl condimentum
-id venenatis a condimentum vitae sapien pellentesque
-habitant morbi tristique senectus et netus et malesuada
-fames ac turpis`
+nulla aliquet`
 
 function useWindowWidth() {
     function getWindowWidth() {
@@ -53,6 +46,7 @@ function MainPage() {
     const [isMoreClicked, setIsMoreClicked] = useState(false)
     const collapsingText = useRef(null)
     const { position, radius } = useHexagonRadiusAndPosition()
+    const width = useWindowWidth()
 
     function onClickMoreText() {
         setIsMoreClicked((prevState) => !prevState)
@@ -63,7 +57,7 @@ function MainPage() {
     }
 
     return (
-        <div className="shadow-sm mt-auto mx-auto w-full md:w-3/4 lg:w-1/2 flex flex-col md:flex-row flex-grow md:flex-grow-0">
+        <div className="shadow-sm mx-auto mt-auto w-full md:w-3/4 lg:w-3/5 flex flex-col md:flex-row flex-grow md:flex-grow-0">
             <div className="bg-blue-default md:w-1/5 p-5 flex flex-col justify-center items-center relative">
                 <Canvas
                     className={clsx(
@@ -76,7 +70,7 @@ function MainPage() {
                     This is main page title
                 </h1>
             </div>
-            <div className="bg-blue-light md:w-5/6 px-14 py-24 flex-grow md:flex-grow-0 flex flex-col items-center">
+            <div className="bg-blue-light md:w-5/6 p-5 md:px-14 md:py-24 flex-grow md:flex-grow-0 flex flex-col items-center">
                 <h1 className="text-blue-dark text-lg hidden md:block">
                     This is main page title
                 </h1>
@@ -88,7 +82,8 @@ function MainPage() {
                     }}
                     ref={collapsingText}
                     className={clsx(
-                        !isMoreClicked && "max-h-24",
+                        !isMoreClicked &&
+                            ((width >= 768 && "md:max-h-12") || "max-h-24"),
                         "text-blue-dark overflow-hidden transition-all duration-500 ease-in-out"
                     )}
                 >
