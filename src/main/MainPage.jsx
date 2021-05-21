@@ -38,9 +38,9 @@ function MainPage() {
     }
 
     return (
-        <div className="shadow-sm mt-auto flex flex-col md:flex-row flex-grow md:flex-grow-0">
+        <div className="shadow-sm mt-auto mx-auto md:w-1/2 flex flex-col md:flex-row flex-grow md:flex-grow-0">
             <div className="bg-blue-default p-5 flex flex-col justify-center items-center">
-                <Canvas className="justify-self-start mb-6" r={50} />
+                <Canvas className="justify-self-start mb-6 md:mb-0" r={50} />
                 <h1 className="text-blue-light text-lg md:hidden">
                     This is main page title
                 </h1>
@@ -58,7 +58,7 @@ function MainPage() {
                     ref={collapsingText}
                     className={clsx(
                         !isMoreClicked && "max-h-24",
-                        "text-blue-dark overflow-hidden transition-all duration-1000 ease-in-out"
+                        "text-blue-dark overflow-hidden transition-all duration-500 ease-in-out"
                     )}
                 >
                     {fullText}
