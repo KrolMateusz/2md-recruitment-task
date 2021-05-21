@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react"
 import ButtonsWrapper from "./ButtonsWrapper"
 import Canvas from "../components/canvas"
 import Modal from "../components/modal"
+import Slider from "../components/slider"
 
 const fullText = `quis enim lobortis scelerisque fermentum dui faucibus in
 ornare quam viverra orci sagittis eu volutpat odio facilisis
@@ -72,11 +73,18 @@ function MainPage() {
                     )}
                     r={radius}
                 />
-                <h1 className="text-blue-light text-lg md:hidden">
+                <h1 className="text-blue-light text-lg md:hidden font-bold">
                     This is main page title
                 </h1>
                 <Modal isOpened={isModelOpened} onClose={onCloseGallery}>
-                    <div>Jestem childrenem</div>
+                    <Slider
+                        slides={[
+                            { title: "1" },
+                            { title: "2" },
+                            { title: "3" },
+                            { title: "4" },
+                        ]}
+                    />
                 </Modal>
             </div>
             <div className="bg-blue-light md:w-5/6 p-5 md:px-14 md:py-24 flex-grow md:flex-grow-0 flex flex-col items-center">
