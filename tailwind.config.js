@@ -9,6 +9,12 @@ module.exports = {
                 dark: "#2899fb",
             },
         },
+        extend: {
+            inset: {
+                "-px-80": "-80px",
+                "-px-70": "-70px",
+            },
+        },
     },
     variants: {
         extend: {},

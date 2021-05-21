@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import ButtonsWrapper from "./ButtonsWrapper"
 import Canvas from "../components/canvas"
 
@@ -24,10 +24,35 @@ id venenatis a condimentum vitae sapien pellentesque
 habitant morbi tristique senectus et netus et malesuada
 fames ac turpis`
 
+function useWindowWidth() {
+    function getWindowWidth() {
+        return window.innerWidth
+    }
+    const [width, setWidth] = useState(getWindowWidth())
+
+    useEffect(() => {
+        window.addEventListener("resize", () => setWidth(getWindowWidth()))
+        return () => {
+            window.removeEventListener("resize", () =>
+                setWidth(getWindowWidth())
+            )
+        }
+    }, [])
+
+    return width
+}
+
+function useHexagonRadiusAndPosition() {
+    const width = useWindowWidth()
+    if (width >= 1280) return { radius: 80, position: "-left-px-80" }
+    if (width >= 768) return { radius: 70, position: "-left-px-70" }
+    return { radius: 50, position: "" }
+}
+
 function MainPage() {
     const [isMoreClicked, setIsMoreClicked] = useState(false)
     const collapsingText = useRef(null)
-    console.log(collapsingText.current && collapsingText.current.scrollHeight)
+    const { position, radius } = useHexagonRadiusAndPosition()
 
     function onClickMoreText() {
         setIsMoreClicked((prevState) => !prevState)
@@ -38,14 +63,20 @@ function MainPage() {
     }
 
     return (
-        <div className="shadow-sm mt-auto mx-auto md:w-1/2 flex flex-col md:flex-row flex-grow md:flex-grow-0">
-            <div className="bg-blue-default p-5 flex flex-col justify-center items-center">
-                <Canvas className="justify-self-start mb-6 md:mb-0" r={50} />
+        <div className="shadow-sm mt-auto mx-auto w-full md:w-3/4 lg:w-1/2 flex flex-col md:flex-row flex-grow md:flex-grow-0">
+            <div className="bg-blue-default md:w-1/5 p-5 flex flex-col justify-center items-center relative">
+                <Canvas
+                    className={clsx(
+                        "justify-self-start mb-6 md:mb-0 md:absolute",
+                        "md:" + position
+                    )}
+                    r={radius}
+                />
                 <h1 className="text-blue-light text-lg md:hidden">
                     This is main page title
                 </h1>
             </div>
-            <div className="bg-blue-light p-5 flex-grow md:flex-grow-0 flex flex-col items-center">
+            <div className="bg-blue-light md:w-5/6 px-14 py-24 flex-grow md:flex-grow-0 flex flex-col items-center">
                 <h1 className="text-blue-dark text-lg hidden md:block">
                     This is main page title
                 </h1>
