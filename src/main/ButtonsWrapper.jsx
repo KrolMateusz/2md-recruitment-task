@@ -1,4 +1,4 @@
-import Button from "../components/button/Button"
+import Button from "../components/button"
 import PropTypes from "prop-types"
 
 function ButtonsWrapper({ textArray, onClickArray }) {
