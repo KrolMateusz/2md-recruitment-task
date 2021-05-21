@@ -27,7 +27,7 @@ function Footer() {
     const [time, date] = useDate()
 
     return (
-        <div className="w-full mt-auto py-4 bg-blue-dark flex flex-wrap justify-evenly">
+        <footer className="w-full mt-auto py-4 bg-blue-dark flex flex-wrap justify-evenly">
             <div className="text-blue-light">
                 <p>Mateusz Król</p>
                 <p className="md:hidden">605 064 769</p>
@@ -41,7 +41,7 @@ function Footer() {
                 <p className="hidden md:block">605 064 769</p>
                 <p className="hidden md:block">mateusz.krol96@wp.pl</p>
             </div>
-        </div>
+        </footer>
     )
 }
 

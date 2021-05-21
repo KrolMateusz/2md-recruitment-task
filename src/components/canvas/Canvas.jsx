@@ -12,7 +12,7 @@ function useCanvas(ref, r) {
         for (var i = 0; i < 6; i++) {
             ctx.lineTo(r + r * Math.cos(a * i), r + r * Math.sin(a * i))
         }
-        ctx.fillStyle = "#f1f9ff"
+        ctx.fillStyle = "#bce0fd"
         ctx.fill()
 
         ctx.beginPath()

@@ -58,8 +58,12 @@ function MainPage() {
         setIsModalOpened(true)
     }
 
+    function onCloseGallery() {
+        setIsModalOpened(false)
+    }
+
     return (
-        <div className="shadow-sm mx-auto mt-auto w-full md:w-3/4 lg:w-3/5 flex flex-col md:flex-row flex-grow md:flex-grow-0">
+        <main className="shadow-sm mx-auto mt-auto w-full md:w-3/4 lg:w-3/5 flex flex-col md:flex-row flex-grow md:flex-grow-0">
             <div className="bg-blue-default md:w-1/5 p-5 flex flex-col justify-center items-center relative">
                 <Canvas
                     className={clsx(
@@ -71,7 +75,9 @@ function MainPage() {
                 <h1 className="text-blue-light text-lg md:hidden">
                     This is main page title
                 </h1>
-                <Modal isOpened={isModelOpened} />
+                <Modal isOpened={isModelOpened} onClose={onCloseGallery}>
+                    <div>Jestem childrenem</div>
+                </Modal>
             </div>
             <div className="bg-blue-light md:w-5/6 p-5 md:px-14 md:py-24 flex-grow md:flex-grow-0 flex flex-col items-center">
                 <h1 className="text-blue-dark text-lg hidden md:block">
@@ -97,7 +103,7 @@ function MainPage() {
                     onClickArray={[onClickMoreText, onClickShowGallery]}
                 />
             </div>
-        </div>
+        </main>
     )
 }
 

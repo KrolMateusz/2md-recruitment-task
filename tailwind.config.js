@@ -5,8 +5,12 @@ module.exports = {
         colors: {
             blue: {
                 light: "#f1f9ff",
+                "light-2": "#bce0fd",
                 default: "#80c4fd",
-                dark: "#2899fb",
+                dark: "#3aa2fc",
+            },
+            black: {
+                default: "#000",
             },
         },
         extend: {
