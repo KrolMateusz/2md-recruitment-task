@@ -2,6 +2,7 @@ import clsx from "clsx"
 import { useState, useRef, useEffect } from "react"
 import ButtonsWrapper from "./ButtonsWrapper"
 import Canvas from "../components/canvas"
+import Modal from "../components/modal"
 
 const fullText = `quis enim lobortis scelerisque fermentum dui faucibus in
 ornare quam viverra orci sagittis eu volutpat odio facilisis
@@ -44,6 +45,7 @@ function useHexagonRadiusAndPosition() {
 
 function MainPage() {
     const [isMoreClicked, setIsMoreClicked] = useState(false)
+    const [isModelOpened, setIsModalOpened] = useState(false)
     const collapsingText = useRef(null)
     const { position, radius } = useHexagonRadiusAndPosition()
     const width = useWindowWidth()
@@ -53,7 +55,7 @@ function MainPage() {
     }
 
     function onClickShowGallery() {
-        console.log("zdjecia")
+        setIsModalOpened(true)
     }
 
     return (
@@ -69,6 +71,7 @@ function MainPage() {
                 <h1 className="text-blue-light text-lg md:hidden">
                     This is main page title
                 </h1>
+                <Modal isOpened={isModelOpened} />
             </div>
             <div className="bg-blue-light md:w-5/6 p-5 md:px-14 md:py-24 flex-grow md:flex-grow-0 flex flex-col items-center">
                 <h1 className="text-blue-dark text-lg hidden md:block">
