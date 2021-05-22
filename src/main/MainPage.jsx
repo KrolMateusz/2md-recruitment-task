@@ -4,6 +4,7 @@ import ButtonsWrapper from "./ButtonsWrapper"
 import Canvas from "../components/canvas"
 import Modal from "../components/modal"
 import Slider from "../components/slider"
+import axios from "axios"
 
 const fullText = `quis enim lobortis scelerisque fermentum dui faucibus in
 ornare quam viverra orci sagittis eu volutpat odio facilisis
@@ -18,6 +19,16 @@ curabitur vitae nunc sed velit dignissim sodales ut eu sem
 integer vitae justo eget magna fermentum iaculis eu non diam
 phasellus vestibulum lorem sed risus ultricies tristique
 nulla aliquet`
+
+function useFetchData(url) {
+    const [data, setData] = useState([])
+    useEffect(async () => {
+        const response = await axios.get(url)
+        setData(response.data)
+    }, [])
+
+    return data
+}
 
 function useWindowWidth() {
     function getWindowWidth() {
@@ -50,6 +61,7 @@ function MainPage() {
     const collapsingText = useRef(null)
     const { position, radius } = useHexagonRadiusAndPosition()
     const width = useWindowWidth()
+    const slides = useFetchData("https://picsum.photos/v2/list?limit=10")
 
     function onClickMoreText() {
         setIsMoreClicked((prevState) => !prevState)
@@ -77,14 +89,7 @@ function MainPage() {
                     This is main page title
                 </h1>
                 <Modal isOpened={isModelOpened} onClose={onCloseGallery}>
-                    <Slider
-                        slides={[
-                            { title: "1" },
-                            { title: "2" },
-                            { title: "3" },
-                            { title: "4" },
-                        ]}
-                    />
+                    <Slider slides={slides} />
                 </Modal>
             </div>
             <div className="bg-blue-light md:w-5/6 p-5 md:px-14 md:py-24 flex-grow md:flex-grow-0 flex flex-col items-center">

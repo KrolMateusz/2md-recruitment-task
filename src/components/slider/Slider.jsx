@@ -18,10 +18,20 @@ function Slider({ slides }) {
 
     if (!slides.length) return null
     return (
-        <div className="w-full h-full">
-            <button onClick={previousSlide}>Prev</button>
-            <p>{slides[currentSlide].title}</p>
-            <button onClick={nextSlide}>Next</button>
+        <div className="w-full h-full flex justify-center items-center">
+            <button className="m-1" onClick={previousSlide}>
+                Prev
+            </button>
+            <div className="flex justify-center">
+                <img
+                    className=""
+                    src={slides[currentSlide].download_url}
+                    crossOrigin="anonymous"
+                />
+            </div>
+            <button className="m-1" onClick={nextSlide}>
+                Next
+            </button>
         </div>
     )
 }
@@ -29,7 +39,8 @@ function Slider({ slides }) {
 Slider.propTypes = {
     slides: PropTypes.arrayOf(
         PropTypes.shape({
-            title: PropTypes.string.isRequired,
+            author: PropTypes.string.isRequired,
+            download_url: PropTypes.string.isRequired,
         })
     ),
 }
