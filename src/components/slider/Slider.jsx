@@ -19,7 +19,7 @@ function Slider({ slides }) {
 
     if (!slides.length) return null
     return (
-        <div className="h-full flex flex-col p-4 md:flex-row justify-start md:justify-around md:items-center">
+        <div className="h-full flex flex-col p-4 md:flex-row md:flex-wrap justify-start md:justify-around md:items-center">
             <div className="w-full mb-4 flex justify-evenly items-end md:hidden">
                 <ChangeSlideButton text="&#60;" onClick={previousSlide} />
                 <ChangeSlideButton text="&#62;" onClick={nextSlide} />
@@ -29,9 +29,9 @@ function Slider({ slides }) {
                 text="&#60;"
                 onClick={previousSlide}
             />
-            <div className="flex justify-center max-h-7/10">
+            <div className="container flex justify-center md:w-3/4 h-7/10">
                 <img
-                    className="object-contain"
+                    className="object-contain max-w-full max-h-full"
                     src={slides[currentSlide].download_url}
                 />
             </div>
@@ -40,9 +40,11 @@ function Slider({ slides }) {
                 text="&#62;"
                 onClick={nextSlide}
             />
-            <p className="mt-4 px-2 text-blue-dark border-blue-light-2 border-4 w-max">
-                {slides[currentSlide].author}
-            </p>
+            <div className="container">
+                <p className="mt-4 px-2 text-blue-dark border-blue-light-2 border-4 w-max self-start">
+                    {slides[currentSlide].author}
+                </p>
+            </div>
         </div>
     )
 }

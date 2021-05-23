@@ -21,7 +21,7 @@ module.exports = {
                 "-px-80": "-80px",
                 "-px-70": "-70px",
             },
-            maxHeight: {
+            height: {
                 "7/10": "70%",
             },
         },
