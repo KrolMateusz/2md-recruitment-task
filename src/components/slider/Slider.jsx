@@ -19,7 +19,7 @@ function Slider({ slides }) {
 
     if (!slides.length) return null
     return (
-        <div className="flex-col p-4 md:flex-row justify-center md:justify-around items-start md:items-center">
+        <div className="h-full flex flex-col p-4 md:flex-row justify-start md:justify-around md:items-center">
             <div className="w-full mb-4 flex justify-evenly items-end md:hidden">
                 <ChangeSlideButton text="&#60;" onClick={previousSlide} />
                 <ChangeSlideButton text="&#62;" onClick={nextSlide} />
@@ -31,7 +31,7 @@ function Slider({ slides }) {
             />
             <div className="flex justify-center max-h-7/10">
                 <img
-                    className="object-contain max-h-7/10"
+                    className="object-contain"
                     src={slides[currentSlide].download_url}
                 />
             </div>
@@ -40,6 +40,7 @@ function Slider({ slides }) {
                 text="&#62;"
                 onClick={nextSlide}
             />
+            <p>{slides[currentSlide].author}</p>
         </div>
     )
 }
