@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import IconsWrapper from "./IconsWrapper"
 
 function useDate() {
     const [time, setTime] = useState(getTime())
@@ -27,20 +28,23 @@ function Footer() {
     const [time, date] = useDate()
 
     return (
-        <footer className="w-full mt-auto py-4 bg-blue-dark flex flex-wrap justify-evenly">
-            <div className="text-blue-light">
-                <p>Mateusz Król</p>
-                <p className="md:hidden">605 064 769</p>
-                <p className="md:hidden">mateusz.krol96@wp.pl</p>
+        <footer className="w-full mt-auto py-4 px-4 bg-blue-dark flex flex-wrap justify-between">
+            <div className="w-full md:w-5/12 flex justify-around">
+                <div className="text-blue-light md:mx-4">
+                    <p>Mateusz Król</p>
+                    <p className="md:hidden">605 064 769</p>
+                    <p className="md:hidden">mateusz.krol96@wp.pl</p>
+                </div>
+                <div className="text-blue-light md:mr-4">
+                    <p>{date}</p>
+                    <p>{time}</p>
+                </div>
+                <div className="hidden md:block text-blue-light md:mr-4">
+                    <p className="hidden md:block">605 064 769</p>
+                    <p className="hidden md:block">mateusz.krol96@wp.pl</p>
+                </div>
             </div>
-            <div className="text-blue-light">
-                <p>{date}</p>
-                <p>{time}</p>
-            </div>
-            <div className="hidden md:block text-blue-light">
-                <p className="hidden md:block">605 064 769</p>
-                <p className="hidden md:block">mateusz.krol96@wp.pl</p>
-            </div>
+            <IconsWrapper />
         </footer>
     )
 }
