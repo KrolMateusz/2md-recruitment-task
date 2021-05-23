@@ -12,11 +12,17 @@ module.exports = {
             black: {
                 default: "#000",
             },
+            white: {
+                default: "#fff",
+            },
         },
         extend: {
             inset: {
                 "-px-80": "-80px",
                 "-px-70": "-70px",
+            },
+            maxHeight: {
+                "7/10": "70%",
             },
         },
     },

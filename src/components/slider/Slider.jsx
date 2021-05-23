@@ -1,5 +1,6 @@
 import { useState } from "react"
 import PropTypes from "prop-types"
+import ChangeSlideButton from "./ChangeSlideButton"
 
 function Slider({ slides }) {
     const [currentSlide, setCurrentSlide] = useState(0)
@@ -18,20 +19,27 @@ function Slider({ slides }) {
 
     if (!slides.length) return null
     return (
-        <div className="w-full h-full flex justify-center items-center">
-            <button className="m-1" onClick={previousSlide}>
-                Prev
-            </button>
-            <div className="flex justify-center">
+        <div className="flex-col p-4 md:flex-row justify-center md:justify-around items-start md:items-center">
+            <div className="w-full mb-4 flex justify-evenly items-end md:hidden">
+                <ChangeSlideButton text="&#60;" onClick={previousSlide} />
+                <ChangeSlideButton text="&#62;" onClick={nextSlide} />
+            </div>
+            <ChangeSlideButton
+                classes="hidden md:block"
+                text="&#60;"
+                onClick={previousSlide}
+            />
+            <div className="flex justify-center max-h-7/10">
                 <img
-                    className=""
+                    className="object-contain max-h-7/10"
                     src={slides[currentSlide].download_url}
-                    crossOrigin="anonymous"
                 />
             </div>
-            <button className="m-1" onClick={nextSlide}>
-                Next
-            </button>
+            <ChangeSlideButton
+                classes="hidden md:block"
+                text="&#62;"
+                onClick={nextSlide}
+            />
         </div>
     )
 }

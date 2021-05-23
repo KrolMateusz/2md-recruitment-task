@@ -5,7 +5,10 @@ import clsx from "clsx"
 function Button({ onClick, text, classes }) {
     return (
         <button
-            className={clsx("box-border rounded-md w-32 h-12", classes)}
+            className={clsx(
+                "box-border rounded-md w-32 h-12 focus:outline-none focus:shadow-none",
+                classes
+            )}
             onClick={onClick}
         >
             {text}
