@@ -40,7 +40,9 @@ function Slider({ slides }) {
                 text="&#62;"
                 onClick={nextSlide}
             />
-            <p>{slides[currentSlide].author}</p>
+            <p className="mt-4 px-2 text-blue-dark border-blue-light-2 border-4 w-max">
+                {slides[currentSlide].author}
+            </p>
         </div>
     )
 }
