@@ -4,4 +4,16 @@ module.exports = {
             plugins: [require("tailwindcss"), require("autoprefixer")],
         },
     },
+    webpack: {
+        configure: {
+            optimization: {
+                runtimeChunk: false,
+                splitChunks: {
+                    chunks(chunk) {
+                        return false
+                    },
+                },
+            },
+        },
+    },
 }
